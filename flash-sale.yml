@@ -1,0 +1,16 @@
+config:
+    target: 'https://artillery-next-commerce-demo.vercel.app'
+    phases:
+        - arrivalCount: 30
+          duration: 30
+
+    engines:
+        playwright:
+            launchOptions:
+                headless: false
+
+    processor: ./shop-browse.js
+scenarios:
+    - name: 'Buy a limited tshirt'
+      engine: playwright
+      testFunction: buyLimitedTShirt
